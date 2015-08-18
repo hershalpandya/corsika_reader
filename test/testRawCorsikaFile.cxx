@@ -19,7 +19,7 @@ namespace testRawCorsikaFileNS {
   void test_copy(string filename)
   {
     corsika::Corsika::RawFile rawUnthinnedFile;
-    rawUnthinnedFile.Open(filename);
+    rawUnthinnedFile.Open(filename.c_str());
 
     Corsika::Block<corsika::Corsika::NotThinned> block;
     rawUnthinnedFile.GetNextBlock(block);
@@ -68,7 +68,7 @@ namespace testRawCorsikaFileNS {
       c = Corsika::eGZip;
     }
 
-    ifstream f(filename);
+    ifstream f(filename.c_str());
     corsika::Corsika::RawFile rawUnthinnedStream(f, c);
 
     Corsika::Block<corsika::Corsika::NotThinned> block;
