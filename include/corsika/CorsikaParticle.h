@@ -111,7 +111,7 @@ namespace corsika {
       CorsikaParticle& GetParent()
       { return *fParent; }
 
-      void SetGrandParent(CorsikaParticle p)
+      void SetGrandParent(CorsikaParticle& p)
       { fGrandParent.reset(new CorsikaParticle(p));  }
       CorsikaParticle& GetGrandParent()
       { return *fGrandParent; }
@@ -119,7 +119,7 @@ namespace corsika {
       bool HasMuonInfo() const
       { return fMuonInfo; }
 
-      void SetMuonInfo(CorsikaParticle p)
+      void SetMuonInfo(CorsikaParticle& p)
       { fMuonInfo.reset(new CorsikaParticle(p));  }
       CorsikaParticle& GetMuonInfo()
       { return *fMuonInfo; }

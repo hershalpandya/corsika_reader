@@ -92,7 +92,8 @@ CorsikaShowerFileParticleIterator::increment()
       grandparent = value_;
       continue;
     }
-    if (particleId == 75 && particleId == 76 && particleId == 85 && particleId == 86) {
+    const int temp = int(value_->fDescription/1000); // edited by hershal. earlier PDG code was being compared to 75,76 and so on...
+    if (temp == 75 || temp == 76  && !muaddi) {// edited by hershal. && replaced by || and additional !muaddi_set condition added. another change was to remove pId 85,86 from here. thats a diff particle called decayed muon in particle list
       muaddi = value_;
       continue;
     }
