@@ -10,6 +10,10 @@ C++/Python utility for reading CORSIKA files. This is based on the Auger corsika
 
  1.- CMake.
  2.- Boost development libraries (libboost-...-dev): python, iostreams, test
+ 3. Needs newer gcc version. If you are using it on cobalt, here is an excerpt from cobalt testbed page:
+
+"CERN Developer Toolset version 2 is available the Cobalt Testbed. It includes newer versions of some developer tool than what is provided by Scientific Linux. In particular, gcc 4.8.x is included. More information here: http://linux.web.cern.ch/linux/devtoolset.
+Run scl enable devtoolset-2 bash to start a new shell with devtoolset-2 enabled. Note that you need to run that command for each shell you want to use devtoolset in"
 
 ----------------
 | installation:
