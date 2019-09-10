@@ -89,7 +89,7 @@ const VParticleProperties& ParticleList::Get(int code)
     msg << "Cannot create particle properties for particle id "
         << code
         << ".";
-    std::cerr << msg << std::endl;
+    std::cerr << msg.str() << std::endl;
     throw corsika::CorsikaIOException(msg.str());
   }
 
