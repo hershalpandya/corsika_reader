@@ -12,10 +12,10 @@ set (CMAKE_CXX_FLAGS_DEBUG "-O3")
 set (CMAKE_INCLUDE_CURRENT_DIR TRUE)
 set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 
-find_package (PythonLibs)
+find_package (PythonLibs 3)
 find_package (ZLIB REQUIRED)
 find_package (BZip2 REQUIRED)
-find_package (Boost REQUIRED COMPONENTS iostreams python unit_test_framework)
+find_package (Boost REQUIRED COMPONENTS iostreams python3 unit_test_framework)
 
 message ("${ZLIB_LIBRARIES}")
 message ("${Boost_LIBRARIES}")
