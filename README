@@ -36,6 +36,13 @@ note by hershal July 2018:
 ---
 cmake ../githubrepo_oct16/corsika_reader/ -DCMAKE_INSTALL_PREFIX=$PWD -DFETCH_CORSIKA_DATA=True -DPYTHON_INCLUDE_DIR=/cvmfs/icecube.opensciencegrid.org/py2-v2/RHEL_7_x86_64/include/python2.7 -DBOOST_INCLUDEDIR=/cvmfs/icecube.opensciencegrid.org/py2-v2/RHEL_7_x86_64/include/boost -DBOOST_LIBRARYDIR=/cvmfs/icecube.opensciencegrid.org/py2-v2/RHEL_7_x86_64/lib64/ -DPYTHON_LIBRARY=/cvmfs/icecube.opensciencegrid.org/py2-v2/RHEL_7_x86_64/lib/libpython2.7.so
 
+---
+note by hershal Sep 2019:
+for coma version:
+---
+cmake ../   -DCMAKE_INSTALL_PREFIX=$PWD -DFETCH_CORSIKA_DATA=True
+make 
+make install
 ------------
 | Examples:
 ------------
