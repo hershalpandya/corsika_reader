@@ -38,7 +38,7 @@ BlockID::SetID(const char* const theID)
     ostringstream msg;
     msg << "Length of string \"" << theID
         << "\" is different from " << kLength;
-    FATAL(msg);
+    FATAL(msg.str());
     throw std::exception();
   }
 

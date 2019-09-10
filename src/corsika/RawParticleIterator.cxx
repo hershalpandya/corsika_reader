@@ -97,7 +97,7 @@ RawParticleIterator<Thinning>::GetOneParticle()
     if (!dynamic_cast<RawStream<Thinning>& >(*fRawStream).GetNextBlock(fCurrentBlock)) {
       ostringstream msg;
       msg << "Error reading block " << fCurrentBlockIndex << " in CORSIKA file.";
-      ERROR(msg);
+      ERROR(msg.str());
       throw CorsikaIOException(msg.str());
     }
     if (fCurrentBlock.IsControl() || fCurrentBlock.IsLongitudinal()) { // end of particle records

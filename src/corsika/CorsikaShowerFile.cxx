@@ -149,7 +149,7 @@ CorsikaShowerFile::Read()
     ostringstream err;
     err << "Cannot read CORSIKA shower header for position "
         << fCurrentPosition;
-    FATAL(err);
+    FATAL(err.str());
     return eFail;
   }
 
@@ -157,7 +157,7 @@ CorsikaShowerFile::Read()
     ostringstream err;
     err << "First block at position " << fCurrentPosition
         << " is not event header";
-    FATAL(err);
+    FATAL(err.str());
     return eFail;
   }
   const typename Corsika::EventHeader& header = headerBlock.AsEventHeader();
@@ -169,7 +169,7 @@ CorsikaShowerFile::Read()
     ostringstream err;
     err << "Cannot read CORSIKA shower trailer for position "
         << fCurrentPosition;
-    FATAL(err);
+    FATAL(err.str());
     return eFail;
   }
   if (!trailerBlock.IsEventTrailer()) {
@@ -189,7 +189,7 @@ CorsikaShowerFile::Read()
          << header.fObservationLevels << "), "
          << "switching to level 1.";
     fObservationLevel = 1;
-    INFO(info);
+    INFO(info.str());
   }
 
   // Corsika starts at the top of the atmosphere, not
@@ -229,7 +229,7 @@ CorsikaShowerFile::Read()
 
     ostringstream info;
     info << "TimeShift to core: " << timeShift/1e9; // output in ns
-    INFO(info);
+    INFO(info.str());
 
   } else
     timeShift = (hReference - heightObsLevel) / (cosZenith * kSpeedOfLight);
@@ -371,7 +371,7 @@ CorsikaShowerFile::ReadLongFile()
           "line: \"" << line << "\" "
           "contains invalid string at                ^^^^^^^\n"
           "which is neither VERTICAL nor SLANT !";
-        ERROR(err);
+        ERROR(err.str());
         return eFail;
       }
     }
@@ -396,7 +396,7 @@ CorsikaShowerFile::ReadLongFile()
           "line: \"" << line << "\" "
           "contains invalid string at                ^^^^^^^\n"
           " which is neither VERTICAL nor SLANT !";
-        ERROR(err);
+        ERROR(err.str());
         return eFail;
       }
     }
@@ -434,7 +434,7 @@ CorsikaShowerFile::ReadLongFile()
   if (!find) {
     ostringstream msg;
     msg << "Cannot find shower " << findShower << " in file.";
-    ERROR(msg);
+    ERROR(msg.str());
     return eFail;
   } /*else
       cout << "Current Position " << fCurrentPosition << endl;*/
@@ -581,7 +581,7 @@ CorsikaShowerFile::ReadLongFile()
         "X0 = " << ax0 << ", "
         "zenith = " << acos(cosZenith)/deg
            << (isSlantDepthProfile ? " (SLANT DEPTH)" : " (VERTICAL DEPTH)");
-      INFO(info);
+      INFO(info.str());
 
       // Adding GH information to simulated shower
       // if (!theShower.HasGHParameters() && hasValidGHfit)
@@ -592,7 +592,7 @@ CorsikaShowerFile::ReadLongFile()
         err << "CORISKA shower with invalid GH fit: Xmax=" << axmax
             << " Nmax=" << anmax << " X0=" << ax0
             << " chi2/ndf=" << achi;
-        ERROR(err);
+        ERROR(err.str());
       }
 
       break;
@@ -738,7 +738,7 @@ CorsikaShowerFile::ReadLongBlocks()
     ostringstream err;
     err << "Cannot read CORSIKA long block at position "
         << fCurrentPosition;
-    FATAL(err);
+    FATAL(err.str());
     return eFail;
   }
 
@@ -746,7 +746,7 @@ CorsikaShowerFile::ReadLongBlocks()
     ostringstream err;
     err << "Block at position " << fCurrentPosition
         << " is not longitudinal";
-    FATAL(err);
+    FATAL(err.str());
     return eFail;
   }
   const typename Corsika::Block<Thinning>::LongitudinalBlock& longBlock = block.AsLongitudinalBlock();
@@ -781,7 +781,7 @@ CorsikaShowerFile::ReadLongBlocks()
       ostringstream err;
       err << "Cannot read CORSIKA long block #" << b << "at position "
           << fCurrentPosition;
-      FATAL(err);
+      FATAL(err.str());
       return eFail;
     }
     const typename Corsika::Block<Thinning>::LongitudinalBlock& longBlock = block.AsLongitudinalBlock();
